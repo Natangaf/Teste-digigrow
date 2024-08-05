@@ -1,43 +1,106 @@
-# Portfólio: Explorando Criatividade e Habilidades Técnicas
+# Front-End do Projeto de Upload de Vídeos
 
-## Bem-vindo ao meu Portfólio!
+Este é o front-end do projeto de upload de vídeos. O projeto utiliza React para a construção da interface do usuário e integra com uma API para gerenciar vídeos e categorias.
 
-Este é o meu portfólio que reflete minha jornada criativa e desenvolvimento técnico. Aqui, você encontrará uma coleção diversificada de projetos que demonstram minhas habilidades e paixão pela criação. Vamos explorar juntos:
+## Índice
 
-## Educação e Desenvolvimento Técnico
+- [Descrição](#descrição)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
-- Cursei o programa Full Stack Developer na Kenzie Academy, onde adquiri conhecimentos em tecnologias front-end e back-end.
-- Minha formação incluiu experiências com HTML, CSS, JavaScript, React, Node.js, Laravel , Spring boot ,.NET e Django.
+## Descrição
 
-## Projetos de Destaque
+Este projeto é uma aplicação front-end desenvolvida com React. Ele permite que os usuários façam upload de vídeos, incluindo informações como título, descrição, URL do vídeo, thumbnail e categorias. Os usuários podem adicionar novas categorias e remover categorias existentes.
 
-1. **do.Ação - Plataforma de Doações:** Contribuí para um projeto completo voltado para ONGs, desenvolvendo recursos de gerenciamento de contas e doações. [Acesse aqui](https://do-acao.vercel.app/)
+## Tecnologias Utilizadas
 
-2. **NuKenzie - Gerenciamento de Competências:** Participei do desenvolvimento de uma plataforma para agregar habilidades em tecnologias, permitindo cadastro e edição de conhecimentos. [Saiba mais](https://react-entrega-s1-template-nu-kenzie-natanga.vercel.app/)
+- **React**: Biblioteca JavaScript para construir interfaces de usuário.
+- **React Hook Form**: Biblioteca para gerenciamento de formulários e validação.
+- **Zod**: Biblioteca para validação de esquemas de dados.
+- **React-Select**: Biblioteca para componentes de seleção de opções.
+- **Axios**: Cliente HTTP para realizar requisições à API.
+- **Bootstrap**: Framework de CSS para estilização e componentes.
+- **React-Bootstrap**: Biblioteca de componentes Bootstrap para React.
 
-3. **Kenzie Hub - Gestão Financeira:** Colaborei no desenvolvimento de um sistema para monitorar gastos e ganhos, com recursos de registro de perfil e análise de dados.
+## Instalação
 
-4. **Rick and Morty - Exploração de Personagens:** Colaborei na criação de uma interface para explorar personagens da série, utilizando dados de uma API externa. [Explore aqui](https://rickandmory.vercel.app/)
+Para configurar o projeto localmente, siga os passos abaixo:
 
-## Habilidades Técnicas
+1. **Clone o Repositório**
 
-- Domínio de HTML, CSS e JavaScript para criar interfaces interativas.
-- Proficiência em tecnologias React.js e React Native para desenvolvimento moderno.
-- Experiência avançada em Node.js e Express para construir servidores escaláveis.
-- Conhecimento sólido em Python e Django para desenvolvimento web dinâmico.
-- Familiaridade com PHP, Java e C# para abordagens variadas de desenvolvimento.
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   Navegue até o Diretório do Projeto
+   ```
 
-## Abordagem Criativa
+```bash
+cd seu-repositorio
+Instale as Dependências
+```
 
-Minha jornada é guiada por uma abordagem criativa à resolução de problemas, combinando habilidades técnicas com inovação. Busco desafios que estimulem meu crescimento como desenvolvedor.
+```bash
+npm install
+Inicie o Servidor de Desenvolvimento
+```
 
-## Próximos Passos
+```bash
+npm start
+O aplicativo estará disponível em http://localhost:3000.
+```
 
-Estou empenhado em aprendizado contínuo e ansioso para enfrentar novos desafios que ampliem minha experiência e conhecimento. Se você procura um colaborador dedicado, apaixonado por criar soluções excepcionais, estou pronto para contribuir.
+## Uso
 
-Agradeço por explorar meu portfólio e ficarei feliz em discutir oportunidades ou colaborações. [Entre em contato comigo](https://natangaf.bohr.io/) para mais informações.
+- **Upload de Vídeos**: Navegue até a página de upload de vídeos para enviar novos vídeos.
+- **Adicionar Categoria**: Digite uma nova categoria e clique em "Adicionar Categoria" para incluí-la na lista de categorias disponíveis.
+- **Selecionar Categorias**: As categorias adicionadas são exibidas abaixo do campo de entrada, e você pode removê-las clicando no botão "X" ao lado de cada categoria.
 
-*Vamos juntos criar soluções extraordinárias!*
+## Estrutura do Projeto
 
+- **src/**: Contém todos os arquivos de código-fonte do projeto.
+  - **components/**: Componentes reutilizáveis do React.
+  - **pages/**: Páginas principais do aplicativo.
+  - **services/**: Funções para interagir com a API.
+  - **schema/**: Definições de esquema de validação.
+  - **types/**: Tipos TypeScript utilizados no projeto.
+- **App.tsx**: Componente principal da aplicação.
+- **index.tsx**: Ponto de entrada da aplicação.
 
-*para testes*
+## Contribuição
+
+Contribuições são bem-vindas! Siga estes passos para contribuir:
+
+1.  **Fork o Repositório**
+
+2.  **Crie uma Nova Branch**
+
+    ```bash
+    git checkout -b minha-nova-funcionalidade
+    ```
+
+3.  **Faça as Mudanças e Faça o Commit**
+
+    ```bash
+    git commit -am 'Adicione uma nova funcionalidade'
+    ```
+
+4.  **Envie as Mudanças**
+
+    ```bash
+
+    git push origin minha-nova-funcionalidade
+    ```
+
+5.  **Faça as Mudanças e Faça o Commit**
+
+    ```bash
+
+    Descreva as mudanças e submeta o Pull Request para revisão.
+    ```
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
