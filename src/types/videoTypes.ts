@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { videoReq } from "../schema/videosSchema";
+
 export interface tVideo {
   _id: string;
   title: string;

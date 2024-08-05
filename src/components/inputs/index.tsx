@@ -41,7 +41,7 @@ export const InputValidator = forwardRef<HTMLInputElement, InputValidatorProps>(
             </button>
           )}
         </ContainerInput>
-        {error && <p>{error}</p>}
+        {error && <p> {error}</p>}
       </Container>
     );
   }

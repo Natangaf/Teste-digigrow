@@ -5,7 +5,15 @@ import ContainerComponent from "../../components/ContainerComponent/ContainerCom
 import CardVideo from "../../components/CardVideo/CardVideo";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import { tVideo } from "../../types/videoTypes";
-import { VideoContainer, VideoList } from "./_player";
+import {
+  Categories,
+  Description,
+  IFrame,
+  InfoVideo,
+  Title,
+  VideoContainer,
+  VideoList,
+} from "./_player";
 
 const Player: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -34,7 +42,18 @@ const Player: React.FC = () => {
   return (
     <ContainerComponent>
       <VideoContainer>
-        <VideoPlayer videoUrl={video.videoUrl} />
+        <IFrame>
+          <VideoPlayer videoUrl={video.videoUrl} />
+          <Title>{video.title}</Title>
+          <InfoVideo>
+            <Description>{video.description}</Description>
+            <Categories>
+              {video.category.map((cat) => (
+                <Description>{cat.name},</Description>
+              ))}
+            </Categories>
+          </InfoVideo>
+        </IFrame>
         <VideoList>
           <h3>Outros Vídeos</h3>
           {videos.map((vid) => (

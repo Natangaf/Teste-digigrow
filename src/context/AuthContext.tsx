@@ -14,7 +14,7 @@ interface ChildrenProps {
 }
 
 interface IAuthContext {
-  isAuthenticated: boolean;
+  isAuthenticated: () => boolean;
   login: (data: tLogin) => Promise<void>;
   logout: () => void;
 }
@@ -22,22 +22,23 @@ interface IAuthContext {
 const AuthContext = createContext<IAuthContext | undefined>(undefined);
 
 export const AuthProvider = ({ children }: ChildrenProps) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const isAuthenticated = () => {
     const token = localStorage.getItem("token");
     if (token) {
-      setIsAuthenticated(true);
+      return true;
+    } else {
+      navigate("/login");
+      return false;
     }
-  }, []);
+  };
 
   const login = async (data: tLogin) => {
     try {
       const response = await api.post("/login", data);
       const token = response.data.token;
       localStorage.setItem("token", token);
-      setIsAuthenticated(true);
       navigate("/");
     } catch (error) {
       console.error("Error logging in:", error);
@@ -49,7 +50,6 @@ export const AuthProvider = ({ children }: ChildrenProps) => {
 
   const logout = () => {
     localStorage.removeItem("token");
-    setIsAuthenticated(false);
     navigate("/login");
   };
 

@@ -45,7 +45,7 @@ const Header = () => {
           <HeaderConmtainer>
             <NavLink to={"/"}>VideoMaker</NavLink>
             <ListItem>
-              {isAuthenticated ? (
+              {isAuthenticated() ? (
                 <>
                   <NavLink to={"/upload"}>Novo Video</NavLink>{" "}
                   <Button>Sair</Button>
@@ -70,7 +70,7 @@ const Header = () => {
                 <MdOutlineClose />
               </CloseMobileMenu>
             </li>
-            {isAuthenticated ? (
+            {isAuthenticated() ? (
               <>
                 <NavLink to={"/upload"}>Novo Video</NavLink>{" "}
                 <Button>Sair</Button>

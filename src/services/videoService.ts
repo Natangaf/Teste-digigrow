@@ -14,7 +14,13 @@ export const videoService = {
 
   post: async (data: VideoReqType) => {
     try {
-      const response = await api.post(`/videos/`, data);
+      const token = localStorage.getItem("token");
+
+      const headers = {
+        Authorization: token ? `Bearer ${token}` : "",
+      };
+
+      const response = await api.post("/videos/", data, { headers });
       return response.data;
     } catch (error) {
       console.error("Error posting video data:", error);
@@ -24,7 +30,7 @@ export const videoService = {
 
   getAll: async () => {
     try {
-      const response = await api.get("/videos");      
+      const response = await api.get("/videos");
       return response.data;
     } catch (error) {
       console.error("Error fetching all videos:", error);

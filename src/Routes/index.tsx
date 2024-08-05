@@ -15,7 +15,7 @@ export function RoutePages() {
       <Route path="/assitindo/:id" element={<Player />} />
       <Route
         path="/upload"
-        element={isAuthenticated ? <UploadVideo /> : <Navigate to="/login" />}
+        element={isAuthenticated()  ? <UploadVideo /> : <Navigate to="/login" />}
       />
     </Routes>
   );

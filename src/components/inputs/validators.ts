@@ -16,7 +16,6 @@ export interface SelectValidatorProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   label: string;
   id: string;
-  value?: string[] | undefined;
   options: string[];
   error?: string;
 }

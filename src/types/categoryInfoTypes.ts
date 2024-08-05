@@ -11,3 +11,10 @@ export interface tCategoryRes {
   createdAt: Date;
   updatedAt: Date;
 }
+export interface tCategory {
+  _id: string;
+  name: string;
+  videos: string[];
+  createdAt: Date;
+  updatedAt: Date;
+}
