@@ -1,95 +1,41 @@
 import styled from "styled-components";
-import media from "../../styles/media";
 
-export const MainDashboard = styled.main`
+export const AtentionVideo = styled.div`
   width: 100%;
-
-  margin-top: 30px;
-  padding: 32px 40px;
-  border-radius: 5px;
-
-  background-color: ${({ theme }) => theme.colors.background.details};
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  ${media.tablet} {
-    padding: 0px;
-  }
-`;
-
-export const FigurePrincipal = styled.figure`
-  width: 100%;
-  height: 150px;
-`;
-
-export const PrincipalImg = styled.img`
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-`;
-export const NavCards = styled.ul`
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  margin-top: 40px;
-`;
-export const Cards = styled.li`
-  list-style: none;
-
-  border-bottom: 2px solid ${({ theme }) => theme.colors.primary.main};
-
-  width: 100px;
-  height: 150px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const Containerimage = styled.figure`
-  width: 74px;
-  height: 74px;
-`;
-export const ImageCards = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-`;
-export const BoxShadowStoreItems = styled.section`
-  width: 60%;
-  padding: 10px 40px;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 30px;
-
-  box-shadow: 0px 2px 14px 0px #00000024;
-
-  ${media.tablet} {
+  height: 400px;
+  margin: 20px 0;
+  position: relative;
+  border-radius: 10px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 0px 5px;
+    height: 100%;
+    background: linear-gradient(to top, rgba(10, 34, 75), rgba(0, 0, 0, 0));
+    border-radius: 10px;
   }
 `;
-
-export const BoxShadowCart = styled.section`
-  width: 35%;
+export const Thumbnail = styled.img`
+  width: 100%;
   height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 12px;
+`;
+export const Title = styled.h3`
+  margin: 0;
+  font-size: 2rem;
+  color: ${({ theme }) => theme.colors.text.white};
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 70%;
+`;
 
-  display: flex;
-  flex-direction: column;
-
-  gap: 30px;
-
-  box-shadow: 0px 2px 14px 0px #00000024;
-
-  background-color: ${({ theme }) => theme.colors.background.details};
-
-  ${media.tablet} {
-    display: none;
-  }
+export const CarouselContainer = styled.div`
+  margin: 0 auto;
+  width: 85%;
+  margin: 20px 0;
 `;

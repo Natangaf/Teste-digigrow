@@ -1,5 +1,4 @@
 import { useLocation, NavLink } from "react-router-dom";
-import ContainerComponent from "../ContainerComponent/ContainerComponent";
 import { MdOutlineClose, MdOutlineMenu } from "react-icons/md";
 import {
   Headerbackgroud,
@@ -13,26 +12,19 @@ import {
   CloseMobileMenu,
   ContainerModal,
   Close,
+  HeaderConmtainer,
+  Button,
 } from "./_header";
 import { useState, useEffect } from "react";
-import ModalComponent from "../ModalComponent/ModalComponent";
-import Cart from "../Cart/Cart";
+import ContainerComponent from "../ContainerComponent/ContainerComponent";
+import { useAuth } from "../../context/AuthContext";
 
 const Header = () => {
-  const [OpenModal, setOpenModal] = useState<boolean>(false);
+  const { isAuthenticated, logout } = useAuth();
 
   const [stateMobileMenu, setStateMobileMenu] = useState(false);
   const [animateMenu, setAnimateMenu] = useState(false);
   const location = useLocation();
-
-  const menuItems = [
-    { label: "Menu", href: "/" },
-    { label: "Entrar", href: "/login" },
-    { label: "Contato", href: "/contact" },
-  ];
-
-  const selectedItem =
-    menuItems.find((item) => item.href === location.pathname)?.label || "";
 
   const handleMenuOpen = () => {
     setAnimateMenu(true);
@@ -50,16 +42,20 @@ const Header = () => {
     <>
       <Headerbackgroud>
         <ContainerComponent>
-          <ListItem>
-            {menuItems.map(({ label, href }) => (
-              <ItemMenu key={href}>
-                <NavLink to={href}>{label}</NavLink>
-                {location.pathname === href && <SelectMenu />}
-              </ItemMenu>
-            ))}
-          </ListItem>
+          <HeaderConmtainer>
+            <NavLink to={"/"}>VideoMaker</NavLink>
+            <ListItem>
+              {isAuthenticated ? (
+                <>
+                  <NavLink to={"/upload"}>Novo Video</NavLink>{" "}
+                  <Button>Sair</Button>
+                </>
+              ) : (
+                <NavLink to={"/login"}>Entrar</NavLink>
+              )}
+            </ListItem>
+          </HeaderConmtainer>
           <MobileMenu>
-            <h2>{selectedItem}</h2>
             <OpenMobileMenu onClick={handleMenuOpen}>
               <MdOutlineMenu />
             </OpenMobileMenu>
@@ -74,27 +70,17 @@ const Header = () => {
                 <MdOutlineClose />
               </CloseMobileMenu>
             </li>
-            {menuItems.map(({ label, href }) => (
-              <li key={href}>
-                <NavLink to={href} onClick={handleMenuClose}>
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-            <li onClick={() => setOpenModal(true)}>
-              <p>Carrinho</p>
-            </li>
+            {isAuthenticated ? (
+              <>
+                <NavLink to={"/upload"}>Novo Video</NavLink>{" "}
+                <Button>Sair</Button>
+              </>
+            ) : (
+              <NavLink to={"/login"}>Entrar</NavLink>
+            )}
           </MenuList>
         </Dropshadow>
       )}
-      <ModalComponent isOpen={OpenModal} onClose={() => setOpenModal(false)}>
-        <ContainerModal>
-          <Close onClick={() => setOpenModal(false)}>
-            <MdOutlineClose />
-          </Close>
-          <Cart />
-        </ContainerModal>
-      </ModalComponent>
     </>
   );
 };

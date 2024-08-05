@@ -1,61 +1,75 @@
-import { PrincipalImage } from "../../assets/img";
-import {
-  BoxShadowCart,
-  BoxShadowStoreItems,
-  Cards,
-  Containerimage,
-  FigurePrincipal,
-  ImageCards,
-  MainDashboard,
-  NavCards,
-  PrincipalImg,
-} from "./_home";
-import ContainerComponent from "./../../components/ContainerComponent/ContainerComponent";
-import Search from "../../components/Search/Search";
-
-import StoreItemsList from "../../components/StoreItems/StoreItems";
-import Cart from "../../components/Cart/Cart";
-import { useStoreInfo } from "../../context/StoreInfo";
-import { ISection } from "../../types/MenuInfoTypes";
+import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import ContainerComponent from "../../components/ContainerComponent/ContainerComponent";
+import { useVideo } from "../../context/videosContext";
+import { tVideo } from "../../types/videoTypes";
+import { AtentionVideo, CarouselContainer, Thumbnail, Title } from "./_home";
+import CardVideo from "../../components/CardVideo/CardVideo";
 
 const Home = () => {
-  const { storeInfo, storeMenu } = useStoreInfo();
+  const { fetchVideos } = useVideo();
+  const [videos, setVideos] = useState<tVideo[]>([]);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  useEffect(() => {
+    const loadVideos = async () => {
+      const fetchedVideos = await fetchVideos();
+      setVideos(fetchedVideos);
+    };
+
+    loadVideos();
+  }, []);
 
   return (
-    <>
-      <FigurePrincipal data-com="FigurePrincipal">
-        <PrincipalImg
-          data-com="PrincipalImg"
-          src={storeInfo.webSettings.bannerImage}
-          alt=""
-        />
-      </FigurePrincipal>
-      <ContainerComponent gap={0}>
-        <Search />
-        <MainDashboard data-com="MainDashboard">
-          <BoxShadowStoreItems>
-            <NavCards>
-              {storeMenu.sections.map(({ id, images, name }) => {
-                return (
-                  <Cards key={id}>
-                    <Containerimage>
-                      <ImageCards src={images[0].image} alt={name} />
-                    </Containerimage>
-                    <p>{name}</p>
-                  </Cards>
-                );
-              })}
-            </NavCards>
-            {storeMenu.sections.map((section) => (
-              <StoreItemsList {...section} key={section.id} />
-            ))}
-          </BoxShadowStoreItems>
-          <BoxShadowCart>
-            <Cart />
-          </BoxShadowCart>
-        </MainDashboard>
-      </ContainerComponent>
-    </>
+    <ContainerComponent>
+      {videos.length > 0 ? (
+        <>
+          <AtentionVideo>
+            <Thumbnail
+              src={videos[0].thumbnail}
+              alt={`Thumbnail of ${videos[0].title}`}
+            />
+            <Title>{videos[0].title}</Title>
+          </AtentionVideo>
+
+          <h2>Últimos Vídeos</h2>
+          <CarouselContainer>
+            <Slider {...settings}>
+              {videos.map((video) => (
+                <CardVideo key={video.id} video={video} />
+              ))}
+            </Slider>
+          </CarouselContainer>
+        </>
+      ) : (
+        <></>
+      )}
+    </ContainerComponent>
   );
 };
 

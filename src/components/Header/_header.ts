@@ -39,9 +39,16 @@ export const Headerbackgroud = styled.header`
   font-weight: 600;
   color: ${({ theme }) => theme.colors.text.white};
 `;
+export const HeaderConmtainer = styled.header`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 export const ListItem = styled.ul`
-  width: 80%;
+  width: 30%;
   height: 60px;
   display: flex;
   flex-direction: row;
@@ -174,4 +181,10 @@ export const Close = styled.button`
     width: 25px;
     height: 25px;
   }
+`;
+
+export const Button = styled.button`
+  background-color: transparent;
+  outline: none;
+  font-size: 1rem;
 `;
