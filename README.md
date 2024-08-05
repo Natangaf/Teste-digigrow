@@ -37,20 +37,26 @@ Para configurar o projeto localmente, siga os passos abaixo:
    Navegue até o Diretório do Projeto
    ```
 
-```bash
-cd seu-repositorio
-Instale as Dependências
-```
+2. **Navegue até o Diretório do Projeto**
 
-```bash
-npm install
-Inicie o Servidor de Desenvolvimento
-```
+   ```bash
+   cd seu-repositorio
+   Instale as Dependências
+   ```
 
-```bash
-npm start
-O aplicativo estará disponível em http://localhost:3000.
-```
+3. **Instale as Dependências**
+
+   ```bash
+   npm install
+   Inicie o Servidor de Desenvolvimento
+   ```
+
+4. **Inicie o Servidor de Desenvolvimento**
+
+   ```bash
+   npm start
+   O aplicativo estará disponível em http://localhost:3000.
+   ```
 
 ## Uso
 
