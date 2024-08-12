@@ -64,12 +64,12 @@ const Login = () => {
         </form>
         <div className="register-box">
           <p className="not-acount">Ainda não possui uma conta?</p>
-          <ButtonRegister
+          {/* <ButtonRegister
             className="register-btn"
             onClick={() => navigate("/register")}
           >
             Cadastrar
-          </ButtonRegister>
+          </ButtonRegister> */}
         </div>
       </StyledLogin>
     </ContainerComponent>
