@@ -61,7 +61,7 @@ const Home = () => {
           <CarouselContainer>
             <Slider {...settings}>
               {videos.map((video) => (
-                <CardVideo key={video.id} video={video} />
+                <CardVideo key={video._id} video={video} />
               ))}
             </Slider>
           </CarouselContainer>
